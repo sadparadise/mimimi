@@ -11,7 +11,7 @@ Feel free to ignore it as it doesn't show any good inside or something alike :)
 
 ## Controls
 
-         q - exit the game
-arrow keys - control direction
+* q - exit the game
+* arrow keys - control direction
 
 It's as basic as this. Kinda trash, don't need to tell.
