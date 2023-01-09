@@ -42,6 +42,17 @@ while True:
             if event.key == pygame.K_DOWN:
                 direction = 3
 
+    if body[0][0][0] == fruit_pos[0] and body[0][0][1] == fruit_pos[1]:
+        if body[-1][1] == 0:
+            body.append([[body[-1][0][0] - sqr_size, body[-1][0][1]], 0])
+        if body[-1][1] == 1:
+            body.append([[body[-1][0][0], body[-1][0][1] + sqr_size], 1])
+        if body[-1][1] == 2:
+            body.append([[body[-1][0][0] + sqr_size, body[-1][0][1]], 2])
+        if body[-1][1] == 3:
+            body.append([[body[-1][0][0], body[-1][0][1] - sqr_size], 3])
+        fruit_pos = [random.randint(0,19) * 25, random.randint(0,19) * 25]
+
     for i in range(len(body)-1, 0, -1):               # sets the direction followed by part to the one followed by the part before it in the
         body[i][1] = body[i-1][1]                     # previous iteration (frame, tick, anything...)
     body[0][1] = direction
@@ -56,16 +67,9 @@ while True:
         if part[1] == 3:
             part[0][1] += speed
 
-    if body[0][0][0] == fruit_pos[0] and body[0][0][1] == fruit_pos[1]:
-        if body[-1][1] == 0:
-            body.append([[body[-1][0][0] + sqr_size, body[-1][0][1]], 0])
-        if body[-1][1] == 1:
-            body.append([[body[-1][0][0], body[-1][0][1] + sqr_size], 1])
-        if body[-1][1] == 2:
-            body.append([[body[-1][0][0] - sqr_size, body[-1][0][1]], 2])
-        if body[-1][1] == 3:
-            body.append([[body[-1][0][0], body[-1][0][1] - sqr_size], 3])
-        fruit_pos = [random.randint(0,20) * 25, random.randint(0,20) * 25]
+    for part in body[1:]:
+        if body[0][0][0] == part[0][0] and body[0][0][1] == part[0][1]:
+            speed = 0
 
     screen.fill(bg_color)
     for part in body[1:]:
