@@ -13,7 +13,7 @@ bg_color = [0, 0, 0]
 sqr_size = int(width/20)
 
 head_pos = [int(width/2), int(height/2)]
-body = [[[int(width/2), int(height/2)], 0]]         # each element of the list is an array keeping the position of one of the body parts and a
+body = [[[int(width/2), int(height/2)], 0], [[int(width/2 - sqr_size), int(height/2)], 0]]         # each element of the list is an array keeping the position of one of the body parts and a
 head_color = [255, 0, 255]                          # number telling which direction the part must follow in the iteration:
 body_color = [0, 0, 255]                            # 0 - right, 1 - up, 2 - left, 3 - down
 
