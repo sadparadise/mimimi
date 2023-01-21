@@ -33,13 +33,13 @@ while True:
             if event.key == pygame.K_q:
                 pygame.quit()
                 sys.exit()
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and direction != 2:
                 direction = 0
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_UP and direction != 3:
                 direction = 1
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT and direction != 0:
                 direction = 2
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and direction != 1:
                 direction = 3
 
     if body[0][0][0] == fruit_pos[0] and body[0][0][1] == fruit_pos[1]:
